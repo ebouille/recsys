@@ -5,6 +5,7 @@ pd.set_option('display.max_rows', 10)
 pd.set_option('display.max_columns', 10)
 pd.set_option('display.width', 500)
 
+
 links = pd.read_csv("/Projects/movielens/data/links.csv")
 print("--links--")
 print(links.head())
@@ -30,13 +31,17 @@ print(movies_tags.head())
 
 
 
-movies_tags.fillna("", inplace=True)
-mixed = pd.DataFrame(movies_tags.groupby('movieId')['tag'].apply(
-                             lambda x: "%s" % ' '.join(x)))
-df = pd.merge(movies, mixed, on='movieId', how='left')
-df ['metadata'] = df[['tag', 'genres']].apply(
-                             lambda x: ' '.join(x), axis = 1)
-df[['movieId','title','metadata']].head(3)
 
-print(df.head())
+
+
+
+# movies_tags.fillna("", inplace=True)
+# mixed = pd.DataFrame(movies_tags.groupby('movieId')['tag'].apply(
+#                              lambda x: "%s" % ' '.join(x)))
+# df = pd.merge(movies, mixed, on='movieId', how='left')
+# df ['metadata'] = df[['tag', 'genres']].apply(
+#                              lambda x: ' '.join(x), axis = 1)
+# df[['movieId','title','metadata']].head(3)
+
+# print(df.head())
 
